@@ -52,6 +52,17 @@ def open_pad(path=None, first_line=None): #{{{1
 		vim.current.buffer.append(first_line,0)
 		vim.command("normal! j")
 
+def isdotfile(fname=None):
+	"""
+	Returns true if the file passed is a dotfile
+	NB: not windows safe, due to split. someone else
+	    with a win box can fix it
+	"""
+	if fname.startswith('.'):
+		return True
+	if fname.split("\\")[-1].startswith('.'):
+		return True
+	return False
 
 def get_filelist(query=None): # {{{1
 	""" __get_filelist(query) -> list_of_notes
@@ -61,7 +72,7 @@ def get_filelist(query=None): # {{{1
 	or ack search for query in self.save_dir.
 	"""
 	if not query or query == "":
-		files = listdir(get_save_dir())
+		files = [ e for e in listdir(get_save_dir()) if not isdotfile(e) ]
 	else:
 		search_backend = vim.eval("g:pad_search_backend")
 		if search_backend == "grep":
