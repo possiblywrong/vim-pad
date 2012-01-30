@@ -5,3 +5,16 @@ A quick notetaking plugin for vim.
  * Go check out the [master repo](https://github.com/fmoralesc/vim-pad) for more info.
 
 This is an experimental repo for different storage backends.
+
+## .vimrc settings
+
+The docs can be a bit terse and having **any** mappings in insert mode seems odd, particularly when the default mapping is ``\n`` for open a new pad. I hit that a lot so here are the mappings I use which only trigger in normal mode.
+
+    " vim-pad settings
+    let g:pad_dir = '/home/possiblywrong/.notes/'
+    let g:pad_use_default_mappings = 0
+    " vim-pad mappings
+    nmap <leader><esc> <Plug>ListPads
+    nmap <leader>n <Plug>OpenPad
+    nmap <leader>s <Plug>SearchPads
+
