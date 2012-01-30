@@ -18,3 +18,7 @@ The docs can be a bit terse and having **any** mappings in insert mode seems odd
     nmap <leader>n <Plug>OpenPad
     nmap <leader>s <Plug>SearchPads
 
+Note that to get the list buffer to behave correctly you'll also need
+
+    filetype on
+    filetype plugin indent on
