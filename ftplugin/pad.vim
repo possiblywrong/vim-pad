@@ -8,7 +8,7 @@ setlocal conceallevel=2
 setlocal concealcursor=nc
 setlocal nocp
 noremap <buffer> <silent> <enter> :call pad#EditPad()<cr>
-if has("gui_running")
+if has("gui_running") && g:pad_use_terminal_mappings != 1
 	noremap <buffer> <silent> <delete> :call pad#DeletePad()<cr>
 	noremap <buffer> <silent> <S-esc> :bw<cr>
 else

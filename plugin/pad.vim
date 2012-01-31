@@ -47,6 +47,9 @@ endif
 if !exists('g:pad_use_default_mappings')
 	let g:pad_use_default_mappings = 1
 endif
+if !exists('g:pad_use_terminal_mappings')
+	let g:pad_use_terminal_mappings = 0
+endif
 if !exists('g:pad_modeline_position')
 	let g:pad_modeline_position = 'bottom'
 endif
@@ -91,7 +94,7 @@ function s:CreateMapping(key, action, modename)
 endfunction
 
 if g:pad_use_default_mappings == 1
-	if has("gui_running")
+	if has("gui_running") && g:pad_use_terminal_mappings != 1
     call s:CreateMapping("<C-esc>", "ListPads", "normal")
     call s:CreateMapping("<C-esc>", "ListPads", "insert")
     call s:CreateMapping("<S-esc>", "OpenPad", "normal")
