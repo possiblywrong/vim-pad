@@ -24,6 +24,8 @@ def delete_pad(): #{{{1
 		remove(path)
 		vim.command("bd")
 		vim.command("redraw!")
+	else:
+		vim.command("redraw!")
 
 def incremental_search(): #{{{1
 	""" Provides incremental search within the __pad__ buffer.
